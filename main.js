@@ -18,7 +18,7 @@ var budgetController = (function () {
     }
 
     Expense.prototype.calculatePercenatge = function (totalIncome) {
-        this.percentage = ((this.amount) / totalIncome) * 100;
+        this.percentage = Math.round((((this.amount) / totalIncome) * 100), 3);
     };
 
     Expense.prototype.getPercenatge = function () {
@@ -73,7 +73,7 @@ var budgetController = (function () {
             calcTotal('exp');
 
             if (data.total.inc > 0) {
-                data.percentage = parseFloat(((data.total.exp) / (data.total.inc)) * 100, 3);
+                data.percentage = Math.round((((data.total.exp) / (data.total.inc)) * 100), 3);
             } else {
                 data.percentage = -1;
             }
